@@ -17,7 +17,7 @@ class CanvasViewController: UIViewController {
     @IBOutlet weak var trayView: UIView!
     //to store the coordinates of the tray's original position
     var trayOriginalCenter: CGPoint!
-    var trayDownOffset: CGFloat! = nil
+    var trayDownOffset: CGFloat! = 0
     var trayUp: CGPoint!
     var trayDown: CGPoint!
     
@@ -45,17 +45,23 @@ class CanvasViewController: UIViewController {
         
         
         if sender.state == .began {
-            print("Gesture began")
+            //print("Gesture began")
             trayOriginalCenter = trayView.center
         } else if sender.state == .changed {
-            print("Gesture is changing")
+            //print("Gesture is changing")
             trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
         } else if sender.state == .ended {
-            print("Gesture ended")
+            //print("Gesture ended")
             if velocity.y > 0{
-                self.trayView.center = trayDown
-            }else{
-                self.trayView.center = trayUp
+                UIView.animate(withDuration: 0.3){
+                    self.trayView.center = self.trayDown
+                }
+            }
+            else{
+                UIView.animate(withDuration: 0.3)
+                {
+                    self.trayView.center = self.trayUp
+                }
             }
         }
         
