@@ -10,11 +10,8 @@ import UIKit
 
 class CanvasViewController: UIViewController {
 
-    
-    
-    
-    
     @IBOutlet weak var trayView: UIView!
+    
     //to store the coordinates of the tray's original position
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat! = 0
@@ -27,14 +24,12 @@ class CanvasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
         // Do any additional setup after loading the view.
         trayDownOffset = 160
-        trayUp = trayView.center // The initial position of the tray
-        trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset) // The position of the tray transposed down
-        
-        
+        // The initial position of the tray
+        trayUp = trayView.center
+        // The position of the tray transposed down
+        trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
         
     }
     
@@ -42,7 +37,7 @@ class CanvasViewController: UIViewController {
     @IBAction func didPanTray(_ sender: UIPanGestureRecognizer) {
         
         //let location = sender.location(in: view)
-        var velocity = sender.velocity(in: view)
+        let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
         
         
@@ -77,7 +72,7 @@ class CanvasViewController: UIViewController {
         
         if sender.state == .began{
             
-            var imageView = sender.view as! UIImageView
+            let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             view.addSubview(newlyCreatedFace)
             newlyCreatedFace.center = imageView.center

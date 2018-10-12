@@ -17,71 +17,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-yp-6U2" userLabel="tray">
-                                <rect key="frame" x="0.0" y="444" width="375" height="222.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-yp-6U2" userLabel="tray">
+                                <rect key="frame" x="0.0" y="444.5" width="375" height="222.5"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="jt5-tE-vLP">
-                                        <rect key="frame" x="169" y="57" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="jt5-tE-vLP">
+                                        <rect key="frame" x="157.5" y="74.5" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="uNP-7R-fkd" appends="YES" id="y0s-cf-yiI"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="r8I-VQ-Y9A">
-                                        <rect key="frame" x="67" y="136" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="ufK-9X-AZ5" appends="YES" id="80s-rI-hrv"/>
-                                        </connections>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-HO-9T5">
-                                        <rect key="frame" x="169" y="143" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-HO-9T5">
+                                        <rect key="frame" x="157.5" y="154.5" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ZGq-py-tcd" appends="YES" id="YW9-vY-gF2"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="ji4-cB-ZhP">
-                                        <rect key="frame" x="267" y="143" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="ji4-cB-ZhP">
+                                        <rect key="frame" x="252.5" y="154.5" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="0eb-Jt-rc9" appends="YES" id="fkK-W6-nEv"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="kMg-Ou-AQg">
-                                        <rect key="frame" x="267" y="57" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="kMg-Ou-AQg">
+                                        <rect key="frame" x="252.5" y="74.5" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="VC7-fX-VmA" appends="YES" id="Qci-Af-16T"/>
                                         </connections>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-2s-3TE">
-                                        <rect key="frame" x="190" y="10.5" width="30" height="21"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-2s-3TE">
+                                        <rect key="frame" x="177.5" y="8" width="20" height="14"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-U4-E2x">
-                                        <rect key="frame" x="67" y="57" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-U4-E2x">
+                                        <rect key="frame" x="62.5" y="74.5" width="60" height="60"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="h8J-wZ-40n" appends="YES" id="h7o-Hh-Exb"/>
                                         </connections>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="r8I-VQ-Y9A">
+                                        <rect key="frame" x="62.5" y="154.5" width="60" height="60"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ufK-9X-AZ5" appends="YES" id="80s-rI-hrv"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="ji4-cB-ZhP" firstAttribute="leading" secondItem="BHa-HO-9T5" secondAttribute="trailing" constant="35" id="1zn-sC-L88"/>
+                                    <constraint firstAttribute="bottom" secondItem="r8I-VQ-Y9A" secondAttribute="bottom" constant="8" id="Pms-iz-AKk"/>
+                                    <constraint firstItem="BHa-HO-9T5" firstAttribute="leading" secondItem="r8I-VQ-Y9A" secondAttribute="trailing" constant="35" id="QeL-p7-p2a"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHa-HO-9T5" secondAttribute="bottom" constant="8" id="SZE-Xl-P0z"/>
+                                    <constraint firstItem="kMg-Ou-AQg" firstAttribute="leading" secondItem="jt5-tE-vLP" secondAttribute="trailing" constant="35" id="bxP-QO-bff"/>
+                                    <constraint firstAttribute="bottom" secondItem="ji4-cB-ZhP" secondAttribute="bottom" constant="8" id="c7g-sI-GF4"/>
+                                    <constraint firstItem="w4E-2s-3TE" firstAttribute="centerX" secondItem="I2T-yp-6U2" secondAttribute="centerX" id="iPt-tY-htS"/>
+                                    <constraint firstItem="BHa-HO-9T5" firstAttribute="centerX" secondItem="I2T-yp-6U2" secondAttribute="centerX" id="lIF-JX-RvV"/>
+                                    <constraint firstItem="BHa-HO-9T5" firstAttribute="top" secondItem="jt5-tE-vLP" secondAttribute="bottom" constant="20" id="tSF-84-Npz"/>
+                                    <constraint firstItem="jt5-tE-vLP" firstAttribute="centerX" secondItem="I2T-yp-6U2" secondAttribute="centerX" id="tbl-ay-Iea"/>
+                                    <constraint firstItem="w4E-2s-3TE" firstAttribute="top" secondItem="I2T-yp-6U2" secondAttribute="top" constant="8" id="uaJ-jJ-Q4C"/>
+                                    <constraint firstItem="jt5-tE-vLP" firstAttribute="leading" secondItem="2ys-U4-E2x" secondAttribute="trailing" constant="35" id="w9P-nH-VMn"/>
+                                    <constraint firstItem="r8I-VQ-Y9A" firstAttribute="top" secondItem="2ys-U4-E2x" secondAttribute="bottom" constant="20" id="yaD-mm-9i7"/>
+                                    <constraint firstItem="ji4-cB-ZhP" firstAttribute="top" secondItem="kMg-Ou-AQg" secondAttribute="bottom" constant="20" id="z9A-tj-ZWp"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="6av-kY-5fi" appends="YES" id="agy-Iw-g5y"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="I2T-yp-6U2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E7c-zb-pe5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I2T-yp-6U2" secondAttribute="bottom" id="JQL-Gy-S6S"/>
+                            <constraint firstItem="I2T-yp-6U2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZS5-cX-tQ8"/>
+                            <constraint firstItem="I2T-yp-6U2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="c9j-12-gY5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
