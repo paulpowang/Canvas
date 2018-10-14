@@ -85,6 +85,11 @@ class CanvasViewController: UIViewController {
             newlyCreatedFace.isUserInteractionEnabled = true
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
             
+            // add a UIPinchGestreRecognizer to the newly created face
+            let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinchOriginalFace(sender:)))
+            
+            newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
+            
         }else if sender.state == .changed{
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
             
@@ -109,12 +114,15 @@ class CanvasViewController: UIViewController {
     
     
     @objc func didPanOriginalFace(sender: UIPanGestureRecognizer) {
+        
         let translation = sender.translation(in: view)
         
         if sender.state == .began {
             print("Gesture began")
-            newlyCreatedFace = sender.view as? UIImageView // to get the face that we panned on.
-            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+            // to get the face that we panned on.
+            newlyCreatedFace = sender.view as? UIImageView
+            // so we can offset by translation later.
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
         } else if sender.state == .changed {
             print("Gesture is changing")
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
@@ -130,6 +138,21 @@ class CanvasViewController: UIViewController {
             UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in
                 self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1)
             }, completion: nil)
+        }
+    }
+    
+    
+    @objc func didPinchOriginalFace(sender: UIPinchGestureRecognizer) {
+        
+        let scale = sender.scale
+        
+        if sender.state == .began {
+            newlyCreatedFace = sender.view as? UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        } else if sender.state == .changed {
+            newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
+        } else if sender.state == .ended {
+            newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
         }
     }
     
