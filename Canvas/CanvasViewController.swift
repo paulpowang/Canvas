@@ -11,6 +11,7 @@ import UIKit
 class CanvasViewController: UIViewController {
 
     @IBOutlet weak var trayView: UIView!
+    @IBOutlet weak var arrowImage: UIImageView!
     
     //to store the coordinates of the tray's original position
     var trayOriginalCenter: CGPoint!
@@ -52,12 +53,14 @@ class CanvasViewController: UIViewController {
             if velocity.y > 0{
                 UIView.animate(withDuration: 0.3){
                     self.trayView.center = self.trayDown
+                    self.arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
                 }
             }
             else{
                 UIView.animate(withDuration: 0.3)
                 {
                     self.trayView.center = self.trayUp
+                    self.arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI))
                 }
             }
         }
@@ -123,26 +126,26 @@ class CanvasViewController: UIViewController {
         let translation = sender.translation(in: view)
         
         if sender.state == .began {
-            print("Gesture began")
+            //print("Gesture began")
             // to get the face that we panned on.
             newlyCreatedFace = sender.view as? UIImageView
             // so we can offset by translation later.
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
         } else if sender.state == .changed {
-            print("Gesture is changing")
+            //print("Gesture is changing")
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
             
             // the animate when moving the face
-            UIView.animate(withDuration: 0.2) {
-                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-            }
+            //UIView.animate(withDuration: 0.2) {
+                //self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            //}
         } else if sender.state == .ended {
-            print("Gesture ended")
+            //print("Gesture ended")
             
             // ending Spring animation
-            UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in
-                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }, completion: nil)
+            //UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in
+            //    self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1)
+            //}, completion: nil)
         }
     }
     
@@ -150,28 +153,36 @@ class CanvasViewController: UIViewController {
     @objc func didPinchOriginalFace(sender: UIPinchGestureRecognizer) {
         
         let scale = sender.scale
-        
+        /*
         if sender.state == .began {
             newlyCreatedFace = sender.view as? UIImageView
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
         } else if sender.state == .changed {
             newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
         } else if sender.state == .ended {
-            newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
-        }
+            //newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
+            
+        }*/
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.scaledBy(x: scale, y: scale)
+        sender.scale = 1
+        
     }
     
     @objc func didRotationOriginalFace(sender: UIRotationGestureRecognizer) {
         let rotation = sender.rotation
         
-        if sender.state == .began {
+        /*if sender.state == .began {
             newlyCreatedFace = sender.view as? UIImageView
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
         } else if sender.state == .changed {
             newlyCreatedFace.transform = CGAffineTransform(rotationAngle: rotation)
         } else if sender.state == .ended {
             //newlyCreatedFace.transform = CGAffineTransform(rotationAngle: rotation)
-        }
+            
+        }*/
+        let imageView = sender.view as! UIImageView
+        imageView.transform = imageView.transform.rotated(by: rotation)
     }
     
     

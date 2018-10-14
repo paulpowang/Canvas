@@ -99,6 +99,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="arrowImage" destination="w4E-2s-3TE" id="OAV-QK-wsO"/>
                         <outlet property="trayView" destination="I2T-yp-6U2" id="dsd-dI-8b5"/>
                     </connections>
                 </viewController>
