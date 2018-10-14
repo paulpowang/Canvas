@@ -98,6 +98,11 @@ class CanvasViewController: UIViewController {
             
             newlyCreatedFace.addGestureRecognizer(rotationGestureRecognizer)
             
+            // add double tap to remove face
+            let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didDouleTapFace(sender:)))
+            doubleTapRecognizer.numberOfTapsRequired = 2
+            newlyCreatedFace.addGestureRecognizer(doubleTapRecognizer)
+            
         }else if sender.state == .changed{
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
             
@@ -183,6 +188,17 @@ class CanvasViewController: UIViewController {
         }*/
         let imageView = sender.view as! UIImageView
         imageView.transform = imageView.transform.rotated(by: rotation)
+    }
+    
+    @objc func didDouleTapFace(sender: UITapGestureRecognizer) {
+        // add spring remove animate
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 1, options: [], animations: { () -> Void in
+            sender.view?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }, completion: { finished in
+            if finished {
+                sender.view?.removeFromSuperview()
+            }
+        })
     }
     
     
