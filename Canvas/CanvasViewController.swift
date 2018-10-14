@@ -90,6 +90,11 @@ class CanvasViewController: UIViewController {
             
             newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
             
+            // add a UIRotationGestreRecognizer to the newly created face
+            let rotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(didRotationOriginalFace(sender:)))
+            
+            newlyCreatedFace.addGestureRecognizer(rotationGestureRecognizer)
+            
         }else if sender.state == .changed{
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
             
@@ -153,6 +158,19 @@ class CanvasViewController: UIViewController {
             newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
         } else if sender.state == .ended {
             newlyCreatedFace.transform = CGAffineTransform(scaleX: scale, y: scale)
+        }
+    }
+    
+    @objc func didRotationOriginalFace(sender: UIRotationGestureRecognizer) {
+        let rotation = sender.rotation
+        
+        if sender.state == .began {
+            newlyCreatedFace = sender.view as? UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        } else if sender.state == .changed {
+            newlyCreatedFace.transform = CGAffineTransform(rotationAngle: rotation)
+        } else if sender.state == .ended {
+            //newlyCreatedFace.transform = CGAffineTransform(rotationAngle: rotation)
         }
     }
     
